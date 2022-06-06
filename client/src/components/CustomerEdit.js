@@ -1,23 +1,23 @@
+// Importing components from react and react-native library.
 import axios from 'axios';
-import React, {useContext, useState, useEffect} from 'react';
-import {Text, View, headerShown,StyleSheet,TextInput, Button} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {Text, View,StyleSheet,TextInput, Button} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 
 
 const CustomerDetail =(props)=>{
+    //one of the improvement is to apply useContext instead of prop drilling
     const customerId = props.route.params.data
-    console.log("customerInfoInCustomerDetail",customerId)
     const{navigation}= props
 
-    // console.log("CustomerEdit page",props.route.params.data)
     
     const [firstName, setFirstName] = useState(customerInfo.firstName)
     const [lastName, setLastName] = useState(customerInfo.lastName)
     const [email, setEmail] = useState(customerInfo.email)
 
+    //get individual customer when the component is mounted
     useEffect(()=>{
-
         axios.get('http://192.168.1.218:8000/api/customer/'+customerId)
         .then(res=>{
             console.log("***IndividualCustomerFromAPICall",res.data)
@@ -31,7 +31,9 @@ const CustomerDetail =(props)=>{
         
     },[customerInfo])
 
-
+    // make api call to update the customer's information based on the stored data in state
+    // It is prefered to define a same component to create and update so it can advantage the 
+    // error handling and other common sections
     const updateHandler = (id)=>{
         axios.put('http://192.168.1.218:8000/api/customer/'+id,{
             firstName,
@@ -55,8 +57,6 @@ const CustomerDetail =(props)=>{
             <View style={styles.field}>
                 <Text style={styles.fieldInput}>First Name</Text>
                 <TextInput 
-                    // style={styles.input}
-                    // placeholder= {firstName}
                     value={firstName} 
                     onChangeText={text=>setFirstName(text)}
                 />
@@ -66,8 +66,6 @@ const CustomerDetail =(props)=>{
             <View style={styles.field}>
                 <Text style={styles.fieldInput}>Last Name</Text>
                 <TextInput 
-                    // style={styles.input}
-                    // placeholder= {firstName}
                     value={lastName} 
                     onChangeText={text=>setLastName(text)}
                 />
@@ -78,7 +76,6 @@ const CustomerDetail =(props)=>{
             <View style={styles.field}>
                 <Text style={styles.fieldInput}>E-mail</Text>
                 <TextInput 
-                    // style={styles.input} 
                     value={email} 
                     onChangeText={text=>setEmail(text)}
                 />
@@ -90,12 +87,11 @@ const CustomerDetail =(props)=>{
     )
 }
 
-
+//styling
 const styles = StyleSheet.create({
     container:{
       padding:40,
       paddingTop:100,
-    //   alignItems: 'center',
       
     },
     field:{
@@ -104,8 +100,6 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         justifyContent:'space-between',
-        // margin:10,
-        // maxWidth:'100%'
     
     },
     fieldInput:{

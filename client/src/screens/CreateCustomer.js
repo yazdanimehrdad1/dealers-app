@@ -1,17 +1,18 @@
-import React from 'react'
-import {useState} from 'react'
+// Importing components from react and react-native library.
+import React ,{useState}from 'react'
 import {View, Text, StyleSheet, TextInput,Button,TouchableOpacity} from 'react-native'
 import axios from 'axios'
 
-
+//CreateCustomer component
 const CreateCustomer = ({navigation})=>{
-    
+   
+    //defining states
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [errMsg, setErrMsg] = useState({})
     
-
+    // make api call to add input data to DB
     const createCustomerAPI = ()=>{
         axios.post('http://192.168.1.218:8000/api/customer',{
             firstName,
@@ -19,15 +20,14 @@ const CreateCustomer = ({navigation})=>{
             email
         }).then((res)=>{
             console.log(res.data)
+            //reset states after user submission
             setFirstName('')
             setLastName('')
             setEmail('')
             setErrMsg({})
         })
         .catch( (err)=> {
-            // console.log(err.response.data.errors),
             setErrMsg(err.response.data.errors)
-            console.log(errMsg)
         })
     }
     
@@ -40,6 +40,7 @@ const CreateCustomer = ({navigation})=>{
                     placeholder="First Name" 
                     onChangeText={text=>setFirstName(text)}
                 />
+                {/* error handling */}
                 {
                     errMsg && errMsg.firstName && <Text style={styles.error}>{errMsg.firstName.message}</Text>
                 }
@@ -50,6 +51,7 @@ const CreateCustomer = ({navigation})=>{
                     placeholder="Last Name"
                     onChangeText={text=>setLastName(text)} 
                 />
+                {/* error handling */}
                 {
                     errMsg && errMsg.lastName && <Text style={styles.error}>{errMsg.lastName.message}</Text>
                 }
@@ -61,6 +63,7 @@ const CreateCustomer = ({navigation})=>{
                     onChangeText={text=>setEmail(text)} 
  
                 />
+                {/* error handling */}
                 {
                     errMsg && errMsg.email && <Text style={styles.error}>{errMsg.email.message}</Text>
                 }

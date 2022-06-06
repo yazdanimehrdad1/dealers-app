@@ -1,3 +1,4 @@
+// Importing components from react and react-native library.
 import React, {useState, useEffect} from 'react';
 import {Text, View, headerShown,StyleSheet} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -11,6 +12,7 @@ const CustomerDetail =(props)=>{
     
     const [customer, setCustomer] = useState({})
 
+    // make api call to get the customer's data and update the state upon the component is mounted
     useEffect(()=>{
 
         axios.get('http://192.168.1.218:8000/api/customer/'+customerInfo)
@@ -24,8 +26,6 @@ const CustomerDetail =(props)=>{
         
     },[customerInfo])
     
- 
-
 
     return(
         <View style={styles.container}>
