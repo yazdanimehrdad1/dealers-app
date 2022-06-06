@@ -3,9 +3,9 @@ Notes:
 Run Instruction:
 
 1-  Input local variable in .env file as follows. The .env file is in server folder  
-    - MONGODB_URL = mongodb+srv://username:mongodbpassword@cluster0.xjfvd.mongodb.net/?retryWrites=true&w=majority
-    - DB_NAME= customer
-    - PORT=8000
+    a. MONGODB_URL = mongodb+srv://username:mongodbpassword@cluster0.xjfvd.mongodb.net/?retryWrites=true&w=majority
+    b. DB_NAME= customer
+    c. PORT=8000
 2-  Move to the server directory : cd server
 3-  Run server : nmp start
 4-  Move to the client directory: cd client
