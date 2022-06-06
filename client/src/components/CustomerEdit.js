@@ -20,7 +20,6 @@ const CustomerDetail =(props)=>{
     useEffect(()=>{
         axios.get('http://192.168.1.218:8000/api/customer/'+customerId)
         .then(res=>{
-            console.log("***IndividualCustomerFromAPICall",res.data)
             setFirstName(res.data.firstName)
             setLastName(res.data.lastName)
             setEmail(res.data.email)

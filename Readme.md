@@ -1,5 +1,18 @@
 Notes:
 
+Run Instruction:
+1-  Input local variable in .env file as follows. The .env file is in server folder  
+    - MONGODB_URL = mongodb+srv://username:mongodbpassword@cluster0.xjfvd.mongodb.net/?retryWrites=true&w=majority
+    - DB_NAME= customer
+    - PORT=8000
+2-  Move to server directory : cd server
+3-  Run server : nmp start
+4-  Move to client directory: cd client
+5-  Run react : expo start
+6-  select the preferred  simulator (press i for ios)
+7-  *Note the Customer detail and customer edit are only accecible from the links provided (not from bottom tabs)
+
+
 The code is to fulfill the requirements of the assignment described below. 
 Functional Requirements:
 1-  Create a mobile application (preferred in react native) with 2 tab navigation.

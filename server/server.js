@@ -1,9 +1,3 @@
-// import express from 'express';
-// import mongoose from 'mongoose'
-// import cors from 'cors'
-// import bodyParser from 'body-parser'
-// import cookieParser from 'cookie-parser'
-// import mongooseConfig from './config/mongoose.config.js'
 require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
