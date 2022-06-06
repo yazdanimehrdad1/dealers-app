@@ -5,9 +5,9 @@ Run Instruction:
     - MONGODB_URL = mongodb+srv://username:mongodbpassword@cluster0.xjfvd.mongodb.net/?retryWrites=true&w=majority
     - DB_NAME= customer
     - PORT=8000
-2-  Move to server directory : cd server
+2-  Move to the server directory : cd server
 3-  Run server : nmp start
-4-  Move to client directory: cd client
+4-  Move to the client directory: cd client
 5-  Run react : expo start
 6-  select the preferred  simulator (press i for ios)
 7-  *Note the Customer detail and customer edit are only accecible from the links provided (not from bottom tabs)
@@ -24,7 +24,7 @@ Functional Requirements:
 3-	Create a local database to store the customers
 
 The backend was designed using Node.js(v14.17.1), Express(4.18.1).
-Based on the functional requirements mongoDB and mongoose were used to setup the database for this project. 
+Based on the functional requirements, mongoDB and mongoose were used to setup the database for this project. 
 React native was used to develop the frontend for an ios device. 
 
 Items demonstrated:
@@ -46,4 +46,8 @@ Potential improvements:
 
 2-  The api calls for this project was minimal, however serverless functions could be considered for enterprise level of the dealers app. 
 
-3-  Please refer to the comments in the code for potential improvements to the frontend. The comments are primarily towards making the app scalable. 
+3-  Please refer to the comments in the code for potential improvements to the frontend. The comments are primarily towards making the app scalable.
+
+4-  It is prefred to use TypeScript for both front end and back end development to avoid runtime issues and type checking for an enterprise level 	     application. 
+
+5-  Perform unit test case for api calls
